@@ -1,0 +1,25 @@
+{
+  "name": "bugtracker",
+  "version": "1.0.0",
+  "description": "Bug Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bashsimplicio/bugtracker.git"
+  },
+  "author": "B2A2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bashsimplicio/bugtracker/issues"
+  },
+  "homepage": "https://github.com/bashsimplicio/bugtracker#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.0.3",
+    "pg-promise": "^10.5.2"
+  }
+}
