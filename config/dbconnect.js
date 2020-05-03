@@ -13,7 +13,7 @@ pool.connect(err => {
     console.error('connection error', err.stack)
   } else {
     console.log('connected')
-    console.log('port', port)
+    console.log('port', pool.port)
   }
 })
 
