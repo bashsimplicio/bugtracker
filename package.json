@@ -17,9 +17,18 @@
   },
   "homepage": "https://github.com/bashsimplicio/bugtracker#readme",
   "dependencies": {
+    "bootstrap": "^4.4.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "jquery": "^3.5.1",
     "pg": "^8.0.3",
-    "pg-promise": "^10.5.2"
-  }
+    "pg-promise": "^10.5.2",
+    "popper.js": "^1.16.1"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-sass": "^4.1.0"
+  },
+  "keywords": []
 }
