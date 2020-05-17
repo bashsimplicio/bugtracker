@@ -24,9 +24,10 @@ const getBugsById = (request, response) => {
 }
 
 const createBug = (request, response) => {
-  const { name, bug_type, bug_detail } = request.body
+  const { bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported } = request.body
 
-  pool.query('INSERT INTO bug (name, bug_type, bug_detail) VALUES ($1, $2, $3) RETURNING id', [name, bug_type, bug_detail], (error, results) => {
+  pool.query('INSERT INTO bug (bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id', 
+             [bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported], (error, results) => {
     if (error) {
       throw error
     }
@@ -36,11 +37,11 @@ const createBug = (request, response) => {
 
 const updateBug = (request, response) => {
   const id = parseInt(request.params.id)
-  const { name, bug_type, bug_detail } = request.body
+  const { bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported } = request.body
 
   pool.query(
-    'UPDATE bug SET name = $1, bug_type = $2, bug_detail = $3 WHERE id = $4',
-    [name, bug_type, bug_detail, id],
+    'UPDATE bug SET bug_name = $1, severity = $2, bug_detail = $3, priority = $4, project_id = $5, device = $6, browser = $7, status = $8, date_reported = $9 WHERE id = $10',
+    [bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported, id],
     (error, results) => {
       if (error) {
         throw error
