@@ -109,4 +109,11 @@ dist/
 tmp/
 temp/
 
+#
+.DS_Store
+.package-lock.json
+.README.md
+.env
+.gitignore
+
 # End of https://www.gitignore.io/api/node
