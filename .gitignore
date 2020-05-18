@@ -44,7 +44,7 @@ build/Release
 
 # Dependency directories
 # uncomment below when node_modules folder is removed from repo
-# node_modules/
+node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
@@ -115,5 +115,12 @@ dist/
 # Temporary folders
 tmp/
 temp/
+
+#
+.DS_Store
+package-lock.json
+.README.md
+.env
+.gitignore
 
 # End of https://www.gitignore.io/api/node
