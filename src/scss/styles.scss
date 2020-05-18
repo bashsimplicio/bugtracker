@@ -1,5 +1,30 @@
 $bg-color: rgb(245, 245, 245);
 
+
 body {
-    background: $bg-color;
+    padding-top: 30px;
+    background-color: $bg-color;
+}
+
+a{
+    font-weight: bold;
+}
+
+h2{
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+h4 {
+    color: #324b80;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-bottom: 20px;
+
+}
+
+.sidebarSpacing{
+    margin-top: 20px;
 }
