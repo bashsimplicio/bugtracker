@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- View Project -->
+
+<html class="no-js" lang="en">
+    <head>
+        <!--In title, replace with project-name value-->
+        <title>View Project</title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+        <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+
+
+        <div style="width:800px" class="container">
+          <div>
+              <!-- Replace later with project-name variable -->
+              <h2> Alpha Project </h2>
+          </div>
+          
+          <div>
+            <a href="create-bug.html" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">
+                  <i class="fa fa-plus"></i>
+                  Create Bug
+            </a>
+          </div>
+
+          <div>
+            <!-- Replace later with team-name variable -->
+            <h4> Assigned to Team10 </h4>
+          </div>
+  
+          <!-- Bugs List Start-->
+          <div>
+              <!-- Replace later with bug-name variables -->
+              <ul class="list-group">
+                  <li class="list-group-item list-group-item-action"> <!--main list function-->
+                      <span> Bug 1 - Lorem ipsum </span>
+                      <div class="dropdown float-right">
+                          <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-share-square-o"></i>
+                              View details
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-pencil-square-o"></i>
+                              Edit
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-trash-o"></i>
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                  </li> <!--main list function end-->
+                  <!--Delete below once JS is added-->
+                  <li class="list-group-item list-group-item-action">
+                      <span> Bug 2 - Dolor sit amet </span>
+                      <div class="dropdown float-right">
+                          <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-share-square-o"></i>
+                              View details
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-pencil-square-o"></i>
+                              Edit
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-trash-o"></i>
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                  </li>
+                  <li class="list-group-item list-group-item-action"> Bug 3 - Lorem ipsum</li>
+                  <li class="list-group-item list-group-item-action"> Bug 4 - sit dolor</li>
+                  <!--Delete above once JS is added-->
+              </ul>
+          </div>
+
+          <div style="margin-top:20px">
+            <a href="#"> Edit Project </a>
+            <a href="#" style="color:red"> Delete Project </a>
+          </div>
+    </body>
+</html>

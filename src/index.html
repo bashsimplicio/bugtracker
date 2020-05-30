@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- View Bugs -->
+
+<html class="no-js" lang="en">
+    <head>
+        <title>Bug Tracker</title>
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,800">
+        <link rel='stylesheet' href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/bootstrap.css">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+
+    <body>
+        <script src="/js/jquery.min.js"></script>
+        <script src="/js/popper.min.js"></script>
+        <script src="/js/bootstrap.min.js"></script>
+
+
+        <div class="container" style="width:800px">
+          <div class="row">
+              <div class="p-2">
+                  <h2> Bugs </h2>
+              </div>
+              <div class="p-2">
+                <a href="create-bug.html" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">
+                      <i class="fa fa-plus"></i>
+                      Create Bug
+                </a>
+              </div>
+          </div>
+  
+          <!-- Bugs List Start-->
+          <div>
+              <!-- Replace later with bug-name variables -->
+              <ul class="list-group">
+                  <li class="list-group-item list-group-item-action"> <!--main list function-->
+                      <span> Bug 1 - Lorem ipsum </span>
+                      <div class="dropdown float-right">
+                          <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button" onclick="window.location.href='bug-details.html';">
+                              <i class="fa fa-share-square-o"></i>
+                              View details
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-pencil-square-o"></i>
+                              Edit
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-trash-o"></i>
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                  </li> <!--main list function end-->
+                  <!--Delete below once JS is added-->
+                  <li class="list-group-item list-group-item-action">
+                      <span> Bug 2 - Dolor sit amet </span>
+                      <div class="dropdown float-right">
+                          <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-share-square-o"></i>
+                              View details
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-pencil-square-o"></i>
+                              Edit
+                              </button>
+                            <button class="dropdown-item" type="button">
+                              <i class="fa fa-trash-o"></i>
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                  </li>
+                  <li class="list-group-item list-group-item-action"> Bug 3 - Lorem ipsum</li>
+                  <li class="list-group-item list-group-item-action"> Bug 4 - sit dolor</li>
+                  <!--Delete above once JS is added-->
+              </ul>
+          </div>
+    </body>
+</html>

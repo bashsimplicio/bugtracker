@@ -105,6 +105,13 @@ dist/
 # DynamoDB Local files
 .dynamodb/
 
+### VisualStudioCode ###
+**/.vscode/
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+**/.history
+
 # Temporary folders
 tmp/
 temp/
