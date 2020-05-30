@@ -44,7 +44,7 @@ build/Release
 
 # Dependency directories
 # uncomment below when node_modules folder is removed from repo
-# node_modules/
+node_modules/
 jspm_packages/
 
 # TypeScript v1 declaration files
