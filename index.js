@@ -3,6 +3,7 @@ const bodyParser = require('body-parser')
 const app = express()
 const db = require('./controller/bug')
 const dbProject = require('./controller/project')
+const path = require('path')
 const port = 3000
 
 app.use(bodyParser.json())
@@ -12,8 +13,10 @@ app.use(
   })
 )
 
-app.get('/', (request, response) => {
-  response.json({ info: 'Node.js, Express, and Postgres API' })
+app.use(express.static(__dirname + '/src'));
+
+app.get('/', (request, res) => {
+  res.sendFile(path.join(__dirname+'/index.html'));;
 })
 
 //Bug Endpoints
