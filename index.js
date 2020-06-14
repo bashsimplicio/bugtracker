@@ -1,22 +1,23 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
+const cors = require("cors")
 const db = require('./controller/bug')
 const dbProject = require('./controller/project')
 const path = require('path')
 const port = 3000
 
+var corsOptions = {
+    origin: "http://localhost:8081"
+}
+
+app.use(cors(corsOptions))
 app.use(bodyParser.json())
-app.use(
-  bodyParser.urlencoded({
-    extended: true,
-  })
-)
+app.use(bodyParser.urlencoded({ extended: true, }))
 
-app.use(express.static(__dirname + '/src'));
-
+ 
 app.get('/', (request, res) => {
-  res.sendFile(path.join(__dirname+'/index.html'));;
+  res.json({ message: "Bug Tracker"})
 })
 
 //Bug Endpoints
