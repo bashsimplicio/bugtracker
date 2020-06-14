@@ -1,4 +1,3 @@
-=====================
 Clone the repository:
 =====================
 
@@ -32,7 +31,7 @@ To update local:
 
 5. git rebase origin dev
 
-6. If there are changes and were stashed: git stash pop
+6. If there are changes and are stashed: git stash pop
 
 7. If there are new updates in the package.json: npm start
 
