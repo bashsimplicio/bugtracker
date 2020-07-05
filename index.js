@@ -5,10 +5,13 @@ const cors = require("cors")
 const db = require('./controller/bug')
 const dbProject = require('./controller/project')
 const path = require('path')
-const port = 3000
+const port = 8080
 
-var corsOptions = {
-    origin: "http://localhost:8081"
+const corsOptions = {
+    "origin": "*",
+    "methods": "GET,HEAD,PUT,PATCH,POST,DELETE",
+    "preflightContinue": false,
+    "optionsSuccessStatus": 204
 }
 
 app.use(cors(corsOptions))

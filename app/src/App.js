@@ -5,6 +5,10 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./css/bootstrap.css"
 import "./css/styles.css"
 
+import AddProject from "./components/add-project.component"
+import Project from "./components/project.component"
+import ProjectsList from "./components/project-list.component"
+
 
 // function App() {
 //   return (
@@ -27,26 +31,65 @@ import "./css/styles.css"
 //   );
 // }
 
+// class App extends Component {
+//     render () {
+//       return (
+//        <Router>
+//         <div className="container">
+//           <div className="row">
+//             <div className="p-2">
+//                 <h2> Bugs </h2>
+//             </div>
+//             <div className="p-2">
+//                 <a href="/bugs" className="btn btn-primary btn-lg" tabIndex="-1" role="button" aria-disabled="true">
+//                       <i className="fa fa-plus"></i>
+//                       Create Bug
+//                 </a>
+//             </div>
+//           </div>
+//         </div>
+//       </Router>
+//       );
+//     }
+// }
+
+// export default App;
+
+
 class App extends Component {
-    render () {
-      return (
-       <Router>
-        <div class="container">
-          <div class="row">
-            <div class="p-2">
-                <h2> Bugs </h2>
+  render() {
+    return (
+      <Router>
+        <div>
+          <nav className="navbar navbar-expand navbar-dark bg-dark">
+            <a href="/projects" className="navbar-brand">
+              b2a2
+            </a>
+            <div className="navbar-nav mr-auto">
+              <li className="nav-item">
+                <Link to={"/projects"} className="nav-link">
+                  Projects
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/add"} className="nav-link">
+                  Add Project
+                </Link>
+              </li>
             </div>
-            <div class="p-2">
-                <a href="/bugs" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">
-                      <i class="fa fa-plus"></i>
-                      Create Bug
-                </a>
-            </div>
+          </nav>
+
+          <div className="container mt-3">
+            <Switch>
+              <Route exact path={["/", "/projects"]} component={ProjectsList} />
+              <Route exact path="/add" component={AddProject} />
+              <Route path="/projects/:id" component={Project} />
+            </Switch>
           </div>
         </div>
       </Router>
-      );
-    }
+    );
+  }
 }
 
 export default App;
