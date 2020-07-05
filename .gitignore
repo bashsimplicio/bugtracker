@@ -119,7 +119,7 @@ temp/
 #
 .DS_Store
 package-lock.json
-.README.md
+README.md
 .env
 .gitignore
 
