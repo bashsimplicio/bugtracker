@@ -2,11 +2,11 @@ import http from "../http-common";
 
 class ProjectsDataService {
     getAll() {
-        return http.get("/project");
+        return http.get("/projects");
     }
     
     get(id) {
-        return http.get(`/project/${id}`);
+        return http.get(`/projects/${id}`);
     }
     
     create(data) {
@@ -14,7 +14,7 @@ class ProjectsDataService {
     }
     
     update(id, data) {
-        return http.put(`/project/${id}`, data);
+        return http.put(`/projects/${id}`, data);
     }
     
     delete(id) {

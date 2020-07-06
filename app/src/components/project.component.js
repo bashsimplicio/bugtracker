@@ -63,7 +63,7 @@ export default class Project extends Component {
     
     updateProject() {
         ProjectsDataService.update(
-            this.state.currentProject.id,
+            this.state.currentProject[0].id,
             this.state.currentProject
         )
           .then(response => {
@@ -74,11 +74,12 @@ export default class Project extends Component {
           })
           .catch(e => {
             console.log(e);
+            console.log(this.state.currentProject[0].id);
           });
     }
     
     deleteProject() {
-        ProjectsDataService.delete(this.state.currentProject.id)
+        ProjectsDataService.delete(this.state.currentProject[0].id)
             .then(response => {
                 console.log(response.data);
                 this.props.history.push('/projects')

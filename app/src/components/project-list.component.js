@@ -53,9 +53,9 @@ export default class ProjectsList extends Component {
         });
     }
     
-    setActiveProject(bug, index) {
+    setActiveProject(project, index) {
         this.setState({
-            currentProject: bug,
+            currentProject: project,
             currentIndex: index
         });
     }
