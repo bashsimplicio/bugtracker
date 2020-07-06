@@ -31,10 +31,10 @@ app.put('/bugs/:id', db.updateBug)
 app.delete('/bugs/:id', db.deleteBug)
 
 //Project Endpoints
-app.get('/project', dbProject.getProjects)
-app.get('/project/:id', dbProject.getProjectById)
+app.get('/projects', dbProject.getProjects)
+app.get('/projects/:id', dbProject.getProjectById)
 app.post('/project', dbProject.createProject)
-app.put('/project/:id', dbProject.updateProject)
+app.put('/projects/:id', dbProject.updateProject)
 app.delete('/project/:id', dbProject.deleteProject)
 
 app.listen(port, () => {
