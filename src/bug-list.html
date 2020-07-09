@@ -59,55 +59,44 @@
               </div>
           </div>
   
-          <!-- Bugs List Start-->
-          <div>
-              <table class="table table-hover">
-                  <tbody class="list-group-item list-group-item-action"> <!--main list function-->
-                    <tr>
-                        <td scope="row">Bug 1 - Lorem ipsum </td>
-                        <td colspan="2">Critical</td>
-                        <td>
-                            <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item" type="button" onclick="window.location.href='bug-details.html';">
-                                <i class="fa fa-share-square-o"></i>
-                                View details
-                                </button>
-                                <button class="dropdown-item" type="button">
-                                <i class="fa fa-pencil-square-o"></i>
-                                Edit
-                                </button>
-                                <button class="dropdown-item" type="button">
-                                <i class="fa fa-trash-o"></i>
-                                Delete
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td scope="row">Bug 1 - Lorem ipsum </td>
-                        <td colspan="2">Critical</td>
-                        <td>
-                            <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                                <button class="dropdown-item" type="button" onclick="window.location.href='bug-details.html';">
-                                <i class="fa fa-share-square-o"></i>
-                                View details
-                                </button>
-                                <button class="dropdown-item" type="button">
-                                <i class="fa fa-pencil-square-o"></i>
-                                Edit
-                                </button>
-                                <button class="dropdown-item" type="button">
-                                <i class="fa fa-trash-o"></i>
-                                Delete
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    </tbody> <!--main list function end-->
-                
-                </table>
+          <div class="container">
+            <!-- Bugs List Header-->
+            <div class="row containerHeader">
+              <div class="col-4">
+                Bug
+              </div>
+              <div class="col-3">
+                Type
+              </div>
           </div>
+          <!-- Bugs List Start-->
+            <div class="row containerList">
+                <div class="col-4">
+                  Insert query for Bug Title here
+                </div>
+                <div class="col-7">
+                  <span class="badge badge-danger">Critical</span>
+                </div>
+                <div class="col">
+                      <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <button class="dropdown-item" type="button" onclick="window.location.href='bug-details.html';">
+                            <i class="fa fa-share-square-o"></i>
+                            View details
+                        </button>
+                        <button class="dropdown-item" type="button">
+                            <i class="fa fa-pencil-square-o"></i>
+                            Edit
+                        </button>
+                        <button class="dropdown-item" type="button">
+                            <i class="fa fa-trash-o"></i>
+                            Delete
+                        </button>
+                      </div>
+              </div>
+            </div>
+
+          </div>
+         </div> 
     </body>
 </html>
