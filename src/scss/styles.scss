@@ -2,7 +2,6 @@ $bg-color: rgb(245, 245, 245);
 
 
 body {
-    padding-top: 30px;
     background-color: $bg-color;
 }
 
@@ -10,12 +9,16 @@ a{
     font-weight: bold;
 }
 
+h1{
+    padding-top: 80px;
+}
+
 h2{
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
-h4 {
+h4{
     color: #324b80;
 }
 
@@ -27,4 +30,18 @@ h4 {
 
 .sidebarSpacing{
     margin-top: 20px;
+}
+
+.containerHeader{
+    padding: 10px 0px 10px 50px;    
+    font-weight: bold;
+}
+
+.containerList {
+    background-color: #EDEDED;
+    border-color: #a5a5a5;
+    border-style: solid;
+    border-width: 1px;
+    padding: 10px 0px 10px 50px;    
+    
 }
