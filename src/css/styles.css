@@ -18,6 +18,10 @@ h4 {
   margin-top: 10px;
   margin-bottom: 20px; }
 
+.listActions {
+  padding-top: 5px;
+  float: right; }
+
 .sidebarSpacing {
   margin-top: 20px; }
 
@@ -26,8 +30,8 @@ h4 {
   font-weight: bold; }
 
 .containerList {
-  background-color: #EDEDED;
-  border-color: #a5a5a5;
+  background-color: #f0f0f0;
+  border-color: #dbdbdb;
   border-style: solid;
   border-width: 1px;
   padding: 10px 0px 10px 50px; }
