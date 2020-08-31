@@ -34,5 +34,7 @@
     "gulp-sass": "^4.1.0",
     "react-scripts": "3.4.1"
   },
-  "keywords": []
+  "keywords": [
+    "heroku"
+  ],
 }
