@@ -2,7 +2,7 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const app = express()
 const cors = require("cors")
-const db = require('./controller/bug')
+const dbBug = require('./controller/bug')
 const dbProject = require('./controller/project')
 const path = require('path')
 const port = 8080
@@ -24,11 +24,11 @@ app.get('/', (request, res) => {
 })
 
 //Bug Endpoints
-app.get('/bugs', db.getBugs)
-app.get('/bugs/:id', db.getBugsById)
-app.post('/bugs', db.createBug)
-app.put('/bugs/:id', db.updateBug)
-app.delete('/bugs/:id', db.deleteBug)
+app.get('/bugs', dbBug.getBugs)
+app.get('/bugs/:id', dbBug.getBugsById)
+app.post('/bug', dbBug.createBug)
+app.put('/bugs/:id', dbBug.updateBug)
+app.delete('/bug/:id', dbBug.deleteBug)
 
 //Project Endpoints
 app.get('/projects', dbProject.getProjects)
