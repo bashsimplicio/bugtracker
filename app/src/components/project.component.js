@@ -69,7 +69,7 @@ export default class Project extends Component {
           .then(response => {
             console.log(response.data);
             this.setState({
-                message: "The project was update successfully!"
+                message: "The project was updated successfully!"
             });
           })
           .catch(e => {
@@ -121,7 +121,7 @@ export default class Project extends Component {
                   </form>
                   
                   <button
-                    className="badge badge-dange mr-2"
+                    className="badge badge-danger mr-2"
                     onClick={this.deleteProject}
                   >
                     Delete

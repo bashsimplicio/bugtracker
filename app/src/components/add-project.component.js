@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import BugsDataService from "../services/projects.service";
+import ProjectDataService from "../services/projects.service";
 
 export default class AddProject extends Component {
     constructor(props) {
@@ -36,7 +36,7 @@ export default class AddProject extends Component {
             team: this.state.team
         };
         
-        BugsDataService.create(data)
+        ProjectDataService.create(data)
             .then(response => {
                 this.setState({
                     id: response.data.id,

@@ -26,12 +26,12 @@ const getBugsById = (request, response) => {
 const createBug = (request, response) => {
   const { bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported } = request.body
 
-  pool.query('INSERT INTO bug (bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING id', 
+  pool.query('INSERT INTO bug (bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)', 
              [bug_name, severity, bug_detail, priority, project_id, device, browser, status, date_reported], (error, results) => {
     if (error) {
       throw error
     }
-    response.status(201).send(`Bug added with ID: ${results.rows[0].id}`)
+    response.status(201).send(`Bug added with ID: ${results.insertId}`)
   })
 }
 

@@ -5,9 +5,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./css/bootstrap.css"
 import "./css/styles.css"
 
-import AddProject from "./components/add-project.component"
-import Project from "./components/project.component"
 import ProjectsList from "./components/project-list.component"
+import BugsList from "./components/bug-list.component"
 
 
 // function App() {
@@ -60,30 +59,43 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div>
-          <nav className="navbar navbar-expand navbar-dark bg-dark">
-            <a href="/projects" className="navbar-brand">
-              b2a2
+        <div className="container">
+          <nav className="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar bg-primary">
+            <a className="navbar-brand" href="/">
+                <i className="fa fa-bug"></i> 
+                  BugTracker
             </a>
-            <div className="navbar-nav mr-auto">
-              <li className="nav-item">
-                <Link to={"/projects"} className="nav-link">
-                  Projects
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/add"} className="nav-link">
-                  Add Project
-                </Link>
-              </li>
+
+            <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul className="navbar-nav ml-auto">
+                    <li className="nav-item">
+                        <Link to={"/"} className="nav-link">
+                            Home
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to={"/projects"} className="nav-link">
+                            Projects
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to={"/bugs"} className="nav-link">
+                            Bugs
+                        </Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link to={"/reports"} className="nav-link">
+                            Reports
+                        </Link>
+                    </li>
+                </ul>
             </div>
           </nav>
 
           <div className="container mt-3">
             <Switch>
-              <Route exact path={["/", "/projects"]} component={ProjectsList} />
-              <Route exact path="/add" component={AddProject} />
-              <Route path="/projects/:id" component={Project} />
+              <Route exact path={"/projects"} component={ProjectsList} />
+              <Route exact path={"/bugs"} component={BugsList} />
             </Switch>
           </div>
         </div>
