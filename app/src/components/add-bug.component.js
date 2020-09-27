@@ -1,17 +1,21 @@
 import React, { Component } from "react";
+import Select from "react-select";
+
+import { status, priority, severity } from "./data.js";
 import BugDataService from "../services/bugs.service";
+
 
 export default class AddBug extends Component {
     constructor(props) {
         super(props);
         this.onChangeBugName = this.onChangeBugName.bind(this);
-        this.onChangeSeverity = this.onChangeSeverity.bind(this);
+        this.handleChangeSeverity = this.handleChangeSeverity.bind(this);
         this.onChangeBugDetail = this.onChangeBugDetail.bind(this);
-        this.onChangePriority = this.onChangePriority.bind(this);
+        this.handleChangePriority = this.handleChangePriority.bind(this);
         this.onChangeProject = this.onChangeProject.bind(this);
         this.onChangeDevice = this.onChangeDevice.bind(this);
         this.onChangeBrowser = this.onChangeBrowser.bind(this);
-        this.onChangeStatus = this.onChangeStatus.bind(this);
+        this.handleChangeStatus = this.handleChangeStatus.bind(this);
         this.onChangeDateReported = this.onChangeDateReported.bind(this);
         this.saveBug = this.saveBug.bind(this);
         this.newBug = this.newBug.bind(this);
@@ -38,9 +42,9 @@ export default class AddBug extends Component {
         });
     }
 
-    onChangeSeverity(e) {
+    handleChangeSeverity(e) {
         this.setState({
-            severity: e.target.value
+            selectedSeverity: e
         });
     }    
 
@@ -50,9 +54,9 @@ export default class AddBug extends Component {
         });
     }
 
-    onChangePriority(e) {
+    handleChangePriority(e) {
         this.setState({
-            priority: e.target.value
+            selectedPriority: e
         });
     }
 
@@ -74,9 +78,9 @@ export default class AddBug extends Component {
         });
     }
 
-    onChangeStatus(e) {
+    handleChangeStatus(e) {
         this.setState({
-            status: e.target.value
+            selectedStatus: e
         });
     }
 
@@ -89,13 +93,13 @@ export default class AddBug extends Component {
     saveBug() {
         var data = {
             bug_name: this.state.bug_name,
-            severity: this.state.severity,
+            severity: this.state.selectedSeverity,
             bug_detail: this.state.bug_detail,
-            priority: this.state.priority,
+            priority: this.state.selectedPriority,
             project_id: this.state.project_id,
             device: this.state.device,
             browser: this.state.browser,
-            status: this.state.status,
+            status: this.state.selectedStatus,
             date_reported: this.state.date_reported
         };
         
@@ -165,15 +169,12 @@ export default class AddBug extends Component {
                         
                         <div className="form-group">
                             <label htmlFor="severity">Severity</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="severity"
-                                required
-                                value={this.state.severity}
-                                onChange={this.onChangeSeverity}
-                                name="severity"
-                            />
+                            <Select 
+                                options={severity} 
+                                value={this.state.selectedSeverity} 
+                                onChange={this.handleChangeSeverity}
+                                defaultValue={severity[3]} />
+
                         </div>
                         
                         <div className="form-group">
@@ -191,15 +192,11 @@ export default class AddBug extends Component {
                         
                         <div className="form-group">
                             <label htmlFor="priority">Priority</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="priority"
-                                required
-                                value={this.state.priority}
-                                onChange={this.onChangePriority}
-                                name="priority"
-                            />
+                            <Select 
+                                options={priority} 
+                                value={this.state.selectedPriority} 
+                                onChange={this.handleChangePriority}
+                                defaultValue={priority[3]} />
                         </div>
                         
                         <div className="form-group">
@@ -243,15 +240,12 @@ export default class AddBug extends Component {
                         
                         <div className="form-group">
                             <label htmlFor="status">Status</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="status"
-                                required
-                                value={this.state.status}
-                                onChange={this.onChangeStatus}
-                                name="status"
-                            />
+                            <Select 
+                                options={status} 
+                                value={this.state.selectedStatus} 
+                                onChange={this.handleChangeStatus}
+                                defaultValue={status[0]} />
+
                         </div>
                         
                         <div className="form-group">
