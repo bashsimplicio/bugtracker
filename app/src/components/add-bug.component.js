@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import Select from "react-select";
+import DatePicker from "react-datepicker";
 
+import "react-datepicker/dist/react-datepicker.css";
 import { status, priority, severity } from "./data.js";
+
 import BugDataService from "../services/bugs.service";
+import ProjectsDataService from "../services/projects.service";
 
 
 export default class AddBug extends Component {
@@ -12,16 +16,18 @@ export default class AddBug extends Component {
         this.handleChangeSeverity = this.handleChangeSeverity.bind(this);
         this.onChangeBugDetail = this.onChangeBugDetail.bind(this);
         this.handleChangePriority = this.handleChangePriority.bind(this);
-        this.onChangeProject = this.onChangeProject.bind(this);
+        this.handleChangeProject = this.handleChangeProject.bind(this);
         this.onChangeDevice = this.onChangeDevice.bind(this);
         this.onChangeBrowser = this.onChangeBrowser.bind(this);
         this.handleChangeStatus = this.handleChangeStatus.bind(this);
-        this.onChangeDateReported = this.onChangeDateReported.bind(this);
+        this.handleChangeDateReported = this.handleChangeDateReported.bind(this);
+        this.retrieveProjects = this.retrieveProjects.bind(this);
         this.saveBug = this.saveBug.bind(this);
         this.newBug = this.newBug.bind(this);
         
         this.state = {
             id: null,
+            projects: [],
             bug_name: "",
             severity: "",
             bug_detail: "",
@@ -30,10 +36,27 @@ export default class AddBug extends Component {
             device: "",
             browser: "",
             status: "",
-            date_reported: "",
+            startDate: new Date(),
             
             submitted: false
         }        
+    }
+    
+    componentDidMount() {
+        this.retrieveProjects();
+    }
+    
+    retrieveProjects() {
+        ProjectsDataService.getAll()
+          .then(response => {
+            this.setState({
+                projects: response.data
+            });
+            console.log(response.data)
+          })
+          .catch(e => {
+            console.log(e);
+          });
     }
     
     onChangeBugName(e) {
@@ -60,9 +83,9 @@ export default class AddBug extends Component {
         });
     }
 
-    onChangeProject(e) {
+    handleChangeProject(e) {
         this.setState({
-            project_id: e.target.value
+            selectedProject: e
         });
     }
 
@@ -84,9 +107,9 @@ export default class AddBug extends Component {
         });
     }
 
-    onChangeDateReported(e) {
+    handleChangeDateReported(date) {
         this.setState({
-            date_reported: e.target.value
+            startDate: date
         });
     }
     
@@ -96,11 +119,11 @@ export default class AddBug extends Component {
             severity: this.state.selectedSeverity,
             bug_detail: this.state.bug_detail,
             priority: this.state.selectedPriority,
-            project_id: this.state.project_id,
+            project_id: this.state.selectedProject.value,
             device: this.state.device,
             browser: this.state.browser,
             status: this.state.selectedStatus,
-            date_reported: this.state.date_reported
+            date_reported: this.state.startDate
         };
         
         BugDataService.create(data)
@@ -143,6 +166,11 @@ export default class AddBug extends Component {
     }
     
     render() {
+        const projectOptions = this.state.projects.map(project => ({
+                        "value": project.id,
+                        "label": project.project_name,
+                }))
+
         return (
             <div className="submit-form">
                 {this.state.submitted ? (
@@ -172,8 +200,7 @@ export default class AddBug extends Component {
                             <Select 
                                 options={severity} 
                                 value={this.state.selectedSeverity} 
-                                onChange={this.handleChangeSeverity}
-                                defaultValue={severity[3]} />
+                                onChange={this.handleChangeSeverity} />
 
                         </div>
                         
@@ -195,21 +222,16 @@ export default class AddBug extends Component {
                             <Select 
                                 options={priority} 
                                 value={this.state.selectedPriority} 
-                                onChange={this.handleChangePriority}
-                                defaultValue={priority[3]} />
+                                onChange={this.handleChangePriority} />
                         </div>
                         
                         <div className="form-group">
                             <label htmlFor="project_id">Project</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="project_id"
-                                required
-                                value={this.state.project_id}
-                                onChange={this.onChangeProject}
-                                name="project_id"
-                            />
+                            <Select 
+                                placeholder="Select Project..."
+                                options={projectOptions}
+                                value={this.state.selectedProject}
+                                onChange={this.handleChangeProject} />
                         </div>
                         
                         <div className="form-group">
@@ -243,21 +265,16 @@ export default class AddBug extends Component {
                             <Select 
                                 options={status} 
                                 value={this.state.selectedStatus} 
-                                onChange={this.handleChangeStatus}
-                                defaultValue={status[0]} />
+                                onChange={this.handleChangeStatus} />
 
                         </div>
                         
                         <div className="form-group">
                             <label htmlFor="date_reported">Date Reported</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="date_reported"
-                                required
-                                value={this.state.date_reported}
-                                onChange={this.onChangeDateReported}
-                                name="date_reported"
+                            <DatePicker 
+                                selected={this.state.startDate} 
+                                onChange={this.handleChangeDateReported}
+                                minDate={new Date()}
                             />
                         </div>
                         <button onClick={this.saveBug} className="btn btn-success">
