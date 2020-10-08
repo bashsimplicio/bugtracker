@@ -14,7 +14,7 @@ export default class Project extends Component {
             currentProject: {
                 id: null, 
                 project_name: "",
-                team: ""
+                team: "",
             },
             message: ""
         }; 
@@ -26,6 +26,7 @@ export default class Project extends Component {
     
     onChangeProjectName(e) {
         const project_name = e.target.value;
+        console.log(project_name);
         
         this.setState(function(prevState) {
             return {
@@ -55,6 +56,7 @@ export default class Project extends Component {
               currentProject: response.data
             });
             console.log(response.data);
+            console.log("response date from getproject");
           })
           .catch(e => {
             console.log(e);
@@ -63,7 +65,7 @@ export default class Project extends Component {
     
     updateProject() {
         ProjectsDataService.update(
-            this.state.currentProject[0].id,
+            this.state.currentProject.id,
             this.state.currentProject
         )
           .then(response => {
@@ -74,12 +76,12 @@ export default class Project extends Component {
           })
           .catch(e => {
             console.log(e);
-            console.log(this.state.currentProject[0].id);
+            console.log(this.state.currentProject.id);
           });
     }
     
     deleteProject() {
-        ProjectsDataService.delete(this.state.currentProject[0].id)
+        ProjectsDataService.delete(this.state.currentProject.id)
             .then(response => {
                 console.log(response.data);
                 this.props.history.push('/projects')

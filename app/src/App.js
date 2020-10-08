@@ -6,7 +6,13 @@ import "./css/bootstrap.css"
 import "./css/styles.css"
 
 import ProjectsList from "./components/project-list.component"
+import Project from "./components/project.component"
+import AddProject from "./components/add-project.component"
+
 import BugsList from "./components/bug-list.component"
+import Bug from "./components/bug.component"
+import AddBug from "./components/add-bug.component"
+
 
 
 // function App() {
@@ -95,7 +101,12 @@ class App extends Component {
           <div className="container mt-3">
             <Switch>
               <Route exact path={"/projects"} component={ProjectsList} />
+              <Route exact path="/projects/addproject" component={AddProject} />
+              <Route path="/projects/:id" component={Project} />
+    
               <Route exact path={"/bugs"} component={BugsList} />
+              <Route exact path={"/addbug"} component={AddBug} />
+              <Route path={"/bugs/:id"} component={Bug} />
             </Switch>
           </div>
         </div>
