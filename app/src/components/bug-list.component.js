@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import BugDataService from "../services/bugs.service";
 
-import Bug from "./bug.component"
-import AddBug from "./add-bug.component"
+
     
 
 export default class BugsList extends Component {
@@ -86,11 +85,10 @@ export default class BugsList extends Component {
             });
     }
     
-    render() {
+render() {
         const { searchBug, bugs, currentBug, currentIndex } = this.state;
         
         return (
-            <Router>
                 <div className="list row">
                     <div className="col-md-8">
                         <div className="input-group mb-3">
@@ -114,7 +112,6 @@ export default class BugsList extends Component {
                     <div className="col-md-6">
                         <h4>Bugs List</h4>
                             <Link to={"/addbug"} className="btn btn-primary btn-lg">
-                                <i className="fa fa-plus"></i>
                                 Create Bug 
                             </Link>
                         <ul className="list-group">
@@ -169,14 +166,9 @@ export default class BugsList extends Component {
                                 <p>Please click on a bug...</p>
                             </div>
                         )}
-                    </div>
+                    </div>                 
                 </div>
-                <Switch>
-                    <Route exact path="/" component={BugsList} />
-                    <Route exact path="/addbug" component={AddBug} />
-                    <Route path="/bugs/:id" component={Bug} />
-                </Switch>
-            </Router>
-        )
+        );
     }
 }
+

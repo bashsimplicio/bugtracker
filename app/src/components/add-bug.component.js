@@ -116,13 +116,13 @@ export default class AddBug extends Component {
     saveBug() {
         var data = {
             bug_name: this.state.bug_name,
-            severity: this.state.selectedSeverity,
+            severity: this.state.selectedSeverity.value,
             bug_detail: this.state.bug_detail,
-            priority: this.state.selectedPriority,
+            priority: this.state.selectedPriority.value,
             project_id: this.state.selectedProject.value,
             device: this.state.device,
             browser: this.state.browser,
-            status: this.state.selectedStatus,
+            status: this.state.selectedStatus.value,
             date_reported: this.state.startDate
         };
         
