@@ -9,7 +9,7 @@ import { status, priority, severity } from "./data.js";
 import BugDataService from "../services/bugs.service";
 import ProjectsDataService from "../services/projects.service";
 
-export default class Project extends Component {
+export default class Bug extends Component {
     constructor(props) {
         super(props);
         this.onChangeBugName = this.onChangeBugName.bind(this);
@@ -225,12 +225,10 @@ export default class Project extends Component {
 
     render() {
         const { currentBug } = this.state;
-        // console.log(currentBug.name);
         const projectOptions = this.state.projects.map(project => ({
                 "value": project.id,
                 "label": project.project_name,
         }))
-        console.log(projectOptions);
 
         
         return (

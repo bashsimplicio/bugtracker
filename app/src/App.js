@@ -8,10 +8,12 @@ import "./css/styles.css"
 import ProjectsList from "./components/project-list.component"
 import Project from "./components/project.component"
 import AddProject from "./components/add-project.component"
+import ProjectView from "./components/project-view.component"
 
 import BugsList from "./components/bug-list.component"
 import Bug from "./components/bug.component"
 import AddBug from "./components/add-bug.component"
+import BugView from "./components/bug-view.component"
 
 
 
@@ -102,11 +104,13 @@ class App extends Component {
             <Switch>
               <Route exact path={"/projects"} component={ProjectsList} />
               <Route exact path="/projects/addproject" component={AddProject} />
-              <Route path="/projects/:id" component={Project} />
+              <Route path="/projects/edit/:id" component={Project} />
+              <Route path="/projects/view/:id" component={ProjectView} />
     
               <Route exact path={"/bugs"} component={BugsList} />
               <Route exact path={"/addbug"} component={AddBug} />
-              <Route path={"/bugs/:id"} component={Bug} />
+              <Route path={"/bugs/edit/:id"} component={Bug} />
+              <Route path={"/bugs/view/:id/:project_id"} component={BugView} />
             </Switch>
           </div>
         </div>

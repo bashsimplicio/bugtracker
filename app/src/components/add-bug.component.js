@@ -198,6 +198,7 @@ export default class AddBug extends Component {
                         <div className="form-group">
                             <label htmlFor="severity">Severity</label>
                             <Select 
+                                placeholder="Select Severity..."
                                 options={severity} 
                                 value={this.state.selectedSeverity} 
                                 onChange={this.handleChangeSeverity} />
@@ -220,6 +221,7 @@ export default class AddBug extends Component {
                         <div className="form-group">
                             <label htmlFor="priority">Priority</label>
                             <Select 
+                                placeholder="Select Priority..."
                                 options={priority} 
                                 value={this.state.selectedPriority} 
                                 onChange={this.handleChangePriority} />
@@ -263,6 +265,7 @@ export default class AddBug extends Component {
                         <div className="form-group">
                             <label htmlFor="status">Status</label>
                             <Select 
+                                placeholder="Select Status..."
                                 options={status} 
                                 value={this.state.selectedStatus} 
                                 onChange={this.handleChangeStatus} />

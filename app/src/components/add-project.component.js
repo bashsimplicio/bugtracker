@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import ProjectDataService from "../services/projects.service";
 
 export default class AddProject extends Component {
@@ -63,7 +64,9 @@ export default class AddProject extends Component {
     
     render() {
         return (
+        <div className="container">
             <div className="submit-form">
+                <h2> Add a Project </h2>
                 {this.state.submitted ? (
                     <div>
                         <h4> You submitted successfully! </h4>
@@ -72,38 +75,51 @@ export default class AddProject extends Component {
                         </button>
                     </div>
                 ) : (
-                  <div>
-                    <div className="form-group">
-                        <label htmlFor="project_name">Project Name</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="project_name"
-                            required
-                            value={this.state.project_name}
-                            onChange={this.onChangeProjectName}
-                            name="project_name"
-                        />
+                  <div className="container">
+                    <div className="form-group row">
+                        <label htmlFor="project_name" className="col-sm-2 col-form-label">Project Name:</label>
+                        <div className="col-sm-10">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="project_name"
+                                required
+                                value={this.state.project_name}
+                                onChange={this.onChangeProjectName}
+                                name="project_name"
+                            />
+                        </div>
                     </div>
 
-                    <div className="form-group">
-                        <label htmlFor="team">Team</label>
-                        <input
-                            type="text"
-                            className="form-control"
-                            id="team"
-                            required
-                            value={this.state.team}
-                            onChange={this.onChangeTeam}
-                            name="team"
-                        />
+                    <div className="form-group row">
+                        <label htmlFor="team" className="col-sm-2 col-form-label">Assigned Team:</label>
+                        <div className="col-sm-10">
+                            <input
+                                type="text"
+                                className="form-control"
+                                id="team"
+                                required
+                                value={this.state.team}
+                                onChange={this.onChangeTeam}
+                                name="team"
+                            />
+                        </div>
                     </div>
-                    <button onClick={this.saveProject} className="btn btn-success">
-                        Submit
-                    </button>
+                    <div className="row">
+                        <div className="col-sm-2"></div>
+                        <div className="form-group col-sm-10">
+                            <Link to={"/projects"} className="btn btn-primary btn-lg" role="button" aria-disabled="true" onClick={this.saveProject}>
+                              Submit
+                            </Link>&nbsp;
+                            <Link to={"/projects"} className="btn btn-outline-secondary btn-lg" role="button" aria-disabled="true">
+                              Cancel
+                            </Link>
+                        </div>
+                    </div>
                   </div>
                 )}
             </div>
+        </div>
         );
     }
 }
