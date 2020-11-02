@@ -89,86 +89,65 @@ render() {
         const { searchBug, bugs, currentBug, currentIndex } = this.state;
         
         return (
-                <div className="list row">
-                    <div className="col-md-8">
-                        <div className="input-group mb-3">
-                            <input
-                                className="form-control"
-                                placeholder="Search by bug name"
-                                value={searchBug}
-                                onChange={this.onChangeSearchBug}
-                            />
-                            <div className="input-group-append">
-                                <button
-                                    className="btn btn-outline-secondary"
-                                    type="button"
-                                    onClick={this.searchBug}
-                                >
-                                Search
-                                </button>
+            <div className="container">
+              <div className="row">
+                  <div className="p-2">
+                      <h2> Bugs </h2>
+                  </div>
+                  <div className="p-2">
+                    <Link to={"/addbug"} className="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">
+                          Create Bug
+                    </Link>
+                  </div>
+              </div>
+      
+              <div className="container">
+                <div className="row containerHeader">
+                  <div className="col-4">
+                    Bug
+                  </div>
+                  <div className="col-3">
+                    Type
+                  </div>
+                  <div className="col">
+                    Action
+                  </div>
+              </div>
+                    <ul className="list-group">
+                    
+                    { bugs && bugs.map((bug, index) =>
+                        (
+                            <li className="list-group-item containerList">
+                            <div className="row">
+                                    <div className="col-4">
+                                        {bug.bug_name}
+                                    </div>
+                                    
+                                    <div className="col-3">
+                                        <span className="badge badge-danger">{bug.severity}</span>
+                                    </div>
+                                    <div className="col col-lg-2">
+                                        <Link
+                                            to={"/bugs/edit/" + bug.id}
+                                            className="badge badge-warning"
+                                        >
+                                            Edit
+                                        </Link> &nbsp;
+                                        <Link
+                                            to={"/bugs/view/" + bug.id + "/" + bug.project_id}
+                                            className="badge badge-success"
+                                        >
+                                            View
+                                        </Link>
+                                    </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className="col-md-6">
-                        <h4>Bugs List</h4>
-                            <Link to={"/addbug"} className="btn btn-primary btn-lg">
-                                Create Bug 
-                            </Link>
-                        <ul className="list-group">
-                        {bugs &&
-                            bugs.map((bug, index) => (
-                                <li 
-                                  className={
-                                    "list-group-item" +
-                                    (index === currentIndex ? "active" : "")
-                                  }
-                                  onClick={() => this.setActiveBug(bug, index)}
-                                  key={index}
-                                >
-                                    {bug.bug_name}
-                                </li>
-                        ))}
-                        </ul>
-                        <button 
-                            className="m-3 btn btn-sm btn-danger"
-                            onClick={this.removeAllBugs}
-                        >
-                            Remove All 
-                        </button>
-                    </div>
-                    <div className="col-md-6">
-                        {currentBug ? (
-                            <div>
-                                <h4>Bug</h4>
-                                <div>
-                                    <label>
-                                        <strong>Bug Name: </strong>
-                                    </label>{" "}
-                                    {currentBug.bug_name}
-                                </div>
-                                <div>
-                                    <label>
-                                        <strong>Severity: </strong>
-                                    </label>{" "}
-                                    {currentBug.severity}
-                                </div>
-                                
-                                <Link
-                                    to={"/bugs/" + currentBug.id}
-                                    className="badge badge-warning"
-                                >
-                                    Edit
-                                </Link>
-                            </div>
-                        ) : (
-                            <div>
-                                <br />
-                                <p>Please click on a bug...</p>
-                            </div>
-                        )}
-                    </div>                 
+                            </li>
+                        )
+                    )}
+                    </ul>
                 </div>
-        );
+             </div>    
+        );             
     }
 }
 
