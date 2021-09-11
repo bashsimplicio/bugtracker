@@ -73,7 +73,7 @@ export default class BugView extends Component {
                     <div className="col-7">
                         <div>
                             <h2>{ currentBug.bug_name }</h2>
-                            <h5>{moment(currentBug.date_reported).format("LL")}</h5>
+                            <h5>Created on {moment(currentBug.date_reported).format("LL")}</h5>
                         </div>
                     </div>
                     <div className="col-7">
@@ -89,7 +89,7 @@ export default class BugView extends Component {
                             Type: <span className="badge badge-danger">{ currentBug.severity }</span>
                         </div>
                         <div className="sidebarSpacing">
-                            Priority: <span className="badge badge-danger">{currentBug.priority}</span>
+                            Priority: <span className="badge badge-danger">{ currentBug.priority }</span>
                         </div>
                         <div className="sidebarSpacing"> 
                             <label for="bugStatus">Status: </label>
