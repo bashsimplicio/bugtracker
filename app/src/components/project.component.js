@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import ProjectsDataService from "../services/projects.service";
+
+
 
 export default class Project extends Component {
   constructor(props) {
@@ -26,6 +29,7 @@ export default class Project extends Component {
 
   onChangeProjectName(e) {
     const project_name = e.target.value;
+    console.log(e.target.value)
 
     this.setState(function(prevState) {
       return {
@@ -69,6 +73,7 @@ export default class Project extends Component {
     )
       .then(response => {
         console.log(response.data);
+        this.props.history.push('/projects')
         this.setState({
           message: "The project was updated successfully!"
         });
@@ -96,44 +101,51 @@ export default class Project extends Component {
       <div>
         {currentProject ? (
           <div className="edit-form">
-            <h4>Projects</h4>
+            <h2>Edit Project</h2>
             <form>
-              <div className="form-group">
-                <label htmlFor="project_name">Project Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="project_name"
-                  value={currentProject.project_name}
-                  onChange={this.onChangeProjectName}
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="team">Team</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="team"
-                  value={currentProject.team}
-                  onChange={this.onChangeTeam}
-                />
-              </div>
+                <div className="container">
+                  <div className="form-group row">
+                    <label htmlFor="project_name" className="col-sm-2 col-form-label">Project Name</label>
+                    <div className="col-sm-10">
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="project_name"
+                          value={currentProject.project_name}
+                          onChange={this.onChangeProjectName}
+                        />
+                    </div>
+                  </div>
+                  <div className="form-group row">
+                    <label htmlFor="team" className="col-sm-2 col-form-label">Team</label>
+                    <div className="col-sm-10">
+                        <input
+                          type="text"
+                          className="form-control"
+                          id="team"
+                          value={currentProject.team}
+                          onChange={this.onChangeTeam}
+                        />
+                    </div>
+                  </div>
+                </div>
             </form>
+            <div className="row">
+                <div className="col-sm-2"></div>
+                <div className="form-group col-sm-10">
+                    <Link to={"/projects"} className="btn btn-primary badge-secondary" role="button" aria-disabled="true">
+                        Cancel
+                    </Link>  &nbsp;                 
 
-            <button
-              className="badge badge-danger mr-2"
-              onClick={this.deleteProject}
-            >
-              Delete
-            </button>
-
-            <button
-              type="submit"
-              className="badge badge-success"
-              onClick={this.updateProject}
-            >
-              Update
-            </button>
+                    <button
+                      type="submit"
+                      className="btn btn-primary badge-success"
+                      onClick={this.updateProject}
+                    >
+                      Update
+                    </button>
+                </div>
+            </div>
             <p>{this.state.message}</p>
           </div>
         ) : (

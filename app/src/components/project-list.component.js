@@ -82,9 +82,19 @@ export default class ProjectsList extends Component {
             console.log(e);
           });
     }
+    
+    deleteProject(e) {
+        const projectid = e.target.getAttribute("value")
+
+        ProjectsDataService.delete(projectid)
+         .then(response => {
+            console.log(response.data);
+            window.location.reload()
+          })
+    }   
 
     render() {
-        const { searchProject, projects, currentProject, currentIndex } = this.state;
+        const { searchProject, projects, currentProject, currentIndex, deleteProject } = this.state;
         
         return (
             <div className="container">
@@ -122,9 +132,17 @@ export default class ProjectsList extends Component {
                                     </div>
                                     
                                     <div className="col-3">
-                                        <span className="badge badge-danger">{project.team}</span>
+                                        <h6><span className="badge badge-danger">{project.team}</span></h6>
                                     </div>
-                                    <div className="col-5">
+                                    <div className="col-5"><h6>
+                                        <Link
+                                          to={"/projects"}
+                                          className="badge badge-danger"
+                                          value={project.id}
+                                          onClick={this.deleteProject}
+                                        >
+                                          Delete
+                                        </Link>&nbsp;
                                         <Link
                                             to={"/projects/edit/" + project.id}
                                             className="badge badge-warning"
@@ -136,7 +154,7 @@ export default class ProjectsList extends Component {
                                             className="badge badge-success"
                                         >
                                             View
-                                        </Link>
+                                        </Link></h6>
                                     </div>
                             </div>
                             </li>

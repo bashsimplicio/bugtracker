@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Select from "react-select";
 import DatePicker from "react-datepicker";
+import { Link } from "react-router-dom";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { status, priority, severity } from "./data.js";
@@ -181,33 +182,106 @@ export default class AddBug extends Component {
                         </button>
                     </div>
                 ) : (
-                    <div>
-                        <div className="form-group">
-                            <label htmlFor="bug_name">Bug Name</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="bug_name"
-                                required
-                                value={this.state.bug_name}
-                                onChange={this.onChangeBugName}
-                                name="bug_name"
-                            />
+                    <div className="container">
+                        <div>
+                            <h2>Create a new bug</h2>
                         </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="severity">Severity</label>
-                            <Select 
-                                placeholder="Select Severity..."
-                                options={severity} 
-                                value={this.state.selectedSeverity} 
-                                onChange={this.handleChangeSeverity} />
+                        <div className="row">
+                            <div className="form-group col-sm">
+                                <label htmlFor="bug_name">Bug Name</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="bug_name"
+                                    required
+                                    value={this.state.bug_name}
+                                    onChange={this.onChangeBugName}
+                                    name="bug_name"
+                                />
+                            </div>
+                            
+                            <div className="form-group col-sm">
+                                <label htmlFor="severity">Severity</label>
+                                <Select 
+                                    placeholder="Select Severity..."
+                                    options={severity} 
+                                    value={this.state.selectedSeverity} 
+                                    onChange={this.handleChangeSeverity} />
 
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="form-group col-sm">
+                                <label htmlFor="priority">Priority</label>
+                                <Select 
+                                    placeholder="Select Priority..."
+                                    options={priority} 
+                                    value={this.state.selectedPriority} 
+                                    onChange={this.handleChangePriority} />
+                            </div>
+                            
+                            <div className="form-group col-sm">
+                                <label htmlFor="project_id">Project</label>
+                                <Select 
+                                    placeholder="Select Project..."
+                                    options={projectOptions}
+                                    value={this.state.selectedProject}
+                                    onChange={this.handleChangeProject} />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="form-group col-sm">
+                                <label htmlFor="device">Device</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="device"
+                                    required
+                                    value={this.state.device}
+                                    onChange={this.onChangeDevice}
+                                    name="device"
+                                />
+                            </div>
+                            
+                            <div className="form-group col-sm">
+                                <label htmlFor="browser">Browser</label>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    id="browser"
+                                    required
+                                    value={this.state.browser}
+                                    onChange={this.onChangeBrowser}
+                                    name="browser"
+                                />
+                            </div>
+                        </div>
+                        <div className="row">
+                            <div className="form-group col-sm">
+                                <label htmlFor="status">Status</label>
+                                <Select 
+                                    placeholder="Select Status..."
+                                    options={status} 
+                                    value={this.state.selectedStatus} 
+                                    onChange={this.handleChangeStatus} />
+
+                            </div>
+                            
+                            <div className="form-group col-sm">
+                                <label htmlFor="date_reported">Date Reported</label>
+                                <div>
+                                    <DatePicker 
+                                        selected={this.state.startDate} 
+                                        onChange={this.handleChangeDateReported}
+                                        minDate={new Date()}
+                                    />
+                                </div>
+                            </div>
                         </div>
                         
-                        <div className="form-group">
+                        <div className="form-group col-sm">
                             <label htmlFor="bug_detail">Bug Detail</label>
-                            <input
+                            <textarea
                                 type="text"
                                 className="form-control"
                                 id="bug_detail"
@@ -217,72 +291,13 @@ export default class AddBug extends Component {
                                 name="bug_detail"
                             />
                         </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="priority">Priority</label>
-                            <Select 
-                                placeholder="Select Priority..."
-                                options={priority} 
-                                value={this.state.selectedPriority} 
-                                onChange={this.handleChangePriority} />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="project_id">Project</label>
-                            <Select 
-                                placeholder="Select Project..."
-                                options={projectOptions}
-                                value={this.state.selectedProject}
-                                onChange={this.handleChangeProject} />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="device">Device</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="device"
-                                required
-                                value={this.state.device}
-                                onChange={this.onChangeDevice}
-                                name="device"
-                            />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="browser">Browser</label>
-                            <input
-                                type="text"
-                                className="form-control"
-                                id="browser"
-                                required
-                                value={this.state.browser}
-                                onChange={this.onChangeBrowser}
-                                name="browser"
-                            />
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="status">Status</label>
-                            <Select 
-                                placeholder="Select Status..."
-                                options={status} 
-                                value={this.state.selectedStatus} 
-                                onChange={this.handleChangeStatus} />
+                        <Link to={"/bugs"} className="btn btn-primary btn-lg" role="button" aria-disabled="true" onClick={this.saveBug}>
+                          Submit
+                        </Link>&nbsp;
+                        <Link to={"/bugs"} className="btn btn-outline-secondary btn-lg" role="button" aria-disabled="true">
+                          Cancel
+                        </Link>                        
 
-                        </div>
-                        
-                        <div className="form-group">
-                            <label htmlFor="date_reported">Date Reported</label>
-                            <DatePicker 
-                                selected={this.state.startDate} 
-                                onChange={this.handleChangeDateReported}
-                                minDate={new Date()}
-                            />
-                        </div>
-                        <button onClick={this.saveBug} className="btn btn-success">
-                            Submit 
-                        </button>
                     </div>
                 )}
             </div>

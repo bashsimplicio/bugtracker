@@ -84,6 +84,16 @@ export default class BugsList extends Component {
                 console.log(e);
             });
     }
+        
+    deleteBug(e) {
+        const bugid = e.target.getAttribute("value")
+
+        BugDataService.delete(bugid)
+         .then(response => {
+            console.log(response.data);
+            window.location.reload()
+          })
+    }  
     
 render() {
         const { searchBug, bugs, currentBug, currentIndex } = this.state;
@@ -124,9 +134,18 @@ render() {
                                     </div>
                                     
                                     <div className="col-3">
-                                        <span className="badge badge-danger">{bug.severity}</span>
+                                        <h6><span className="badge badge-secondary badge-danger ">{bug.severity}</span></h6>
                                     </div>
                                     <div className="col col-lg-2">
+                                        <h6>
+                                        <Link
+                                          to={"/bugs"}
+                                          className="badge badge-danger"
+                                          value={bug.id}
+                                          onClick={this.deleteBug}
+                                        >
+                                          Delete
+                                        </Link>&nbsp;
                                         <Link
                                             to={"/bugs/edit/" + bug.id}
                                             className="badge badge-warning"
@@ -138,7 +157,7 @@ render() {
                                             className="badge badge-success"
                                         >
                                             View
-                                        </Link>
+                                        </Link></h6>
                                     </div>
                             </div>
                             </li>
