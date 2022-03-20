@@ -14,73 +14,40 @@
     </head>
 
     <body>
+        <!--TEMP NAVBAR START -->
+                <nav class="navbar navbar-expand navbar-dark flex-column flex-md-row bd-navbar bg-primary" style="padding:20px">
+                <a class="navbar-brand" href="/">
+                  <i class="fa fa-bug" style="color:white"></i> 
+                  BugTracker
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="bug-list.html">Bugs</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Reports</a>
+                    </li>
+                  </ul>
+                </div>
+              </nav>
+        <!-- TEMP NAVBAR END-->
+        
         <script src="/js/jquery.min.js"></script>
         <script src="/js/popper.min.js"></script>
         <script src="/js/bootstrap.min.js"></script>
 
-
-        <div class="container" style="width:800px">
-          <div class="row">
-              <div class="p-2">
-                  <h2> Bugs </h2>
-              </div>
-              <div class="p-2">
-                <a href="create-bug.html" class="btn btn-primary btn-lg" tabindex="-1" role="button" aria-disabled="true">
-                      <i class="fa fa-plus"></i>
-                      Create Bug
-                </a>
-              </div>
-          </div>
-  
-          <!-- Bugs List Start-->
-          <div>
-              <!-- Replace later with bug-name variables -->
-              <ul class="list-group">
-                  <li class="list-group-item list-group-item-action"> <!--main list function-->
-                      <span> Bug 1 - Lorem ipsum </span>
-                      <div class="dropdown float-right">
-                          <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button" onclick="window.location.href='bug-details.html';">
-                              <i class="fa fa-share-square-o"></i>
-                              View details
-                              </button>
-                            <button class="dropdown-item" type="button">
-                              <i class="fa fa-pencil-square-o"></i>
-                              Edit
-                              </button>
-                            <button class="dropdown-item" type="button">
-                              <i class="fa fa-trash-o"></i>
-                              Delete
-                            </button>
-                          </div>
-                        </div>
-                  </li> <!--main list function end-->
-                  <!--Delete below once JS is added-->
-                  <li class="list-group-item list-group-item-action">
-                      <span> Bug 2 - Dolor sit amet </span>
-                      <div class="dropdown float-right">
-                          <i class="fa fa-ellipsis-h" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <button class="dropdown-item" type="button">
-                              <i class="fa fa-share-square-o"></i>
-                              View details
-                              </button>
-                            <button class="dropdown-item" type="button">
-                              <i class="fa fa-pencil-square-o"></i>
-                              Edit
-                              </button>
-                            <button class="dropdown-item" type="button">
-                              <i class="fa fa-trash-o"></i>
-                              Delete
-                            </button>
-                          </div>
-                        </div>
-                  </li>
-                  <li class="list-group-item list-group-item-action"> Bug 3 - Lorem ipsum</li>
-                  <li class="list-group-item list-group-item-action"> Bug 4 - sit dolor</li>
-                  <!--Delete above once JS is added-->
-              </ul>
-          </div>
+        <!-- Welcome Screen start-->
+        <div class="container">
+          <h1>Welcome, Jane!</h1>
+        </div>
+        <!-- Welcome Screen end-->
     </body>
 </html>

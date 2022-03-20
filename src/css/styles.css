@@ -1,9 +1,11 @@
 body {
-  padding-top: 30px;
   background-color: whitesmoke; }
 
 a {
   font-weight: bold; }
+
+h1 {
+  padding-top: 80px; }
 
 h2 {
   padding-top: 15px;
@@ -16,5 +18,20 @@ h4 {
   margin-top: 10px;
   margin-bottom: 20px; }
 
+.listActions {
+  padding-top: 5px;
+  float: right; }
+
 .sidebarSpacing {
   margin-top: 20px; }
+
+.containerHeader {
+  padding: 10px 0px 10px 50px;
+  font-weight: bold; }
+
+.containerList {
+  background-color: #f0f0f0;
+  border-color: #dbdbdb;
+  border-style: solid;
+  border-width: 1px;
+  padding: 10px 0px 10px 50px; }

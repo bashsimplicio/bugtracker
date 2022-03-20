@@ -1,41 +1,32 @@
-$bg-color: rgb(245, 245, 245);
-
-
 body {
-    background-color: $bg-color;
-}
+  padding-top: 30px;
+  background-color: whitesmoke; }
 
-a{
-    font-weight: bold;
-}
+a {
+  font-weight: bold; }
 
 h1{
     padding-top: 80px;
 }
+  
+h2 {
+  padding-top: 15px;
+  padding-bottom: 15px; }
 
-h2{
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
-
-h4{
-    color: #324b80;
-}
-
-.btn {
-    margin-top: 10px;
-    margin-bottom: 20px;
-
-}
+h4 {
+  color: #324b80; }
 
 .listActions{
     padding-top: 5px;
     float: right;
 }
 
-.sidebarSpacing{
-    margin-top: 20px;
-}
+.btn {
+  margin-top: 10px;
+  margin-bottom: 20px; }
+
+.sidebarSpacing {
+  margin-top: 20px; }
 
 .containerHeader{
     padding: 10px 0px 10px 50px;    

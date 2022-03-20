@@ -30,7 +30,7 @@ const createProject = (request, response) => {
       if (error) {
         throw error
       }
-      response.status(201).send(`Project added with ID: ${result.insertId}`)
+      response.status(201).send(`Project added with ID: ${results.insertId}`)
     })
 }
 
