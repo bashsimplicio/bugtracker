@@ -1,7 +1,7 @@
 {
   "name": "bugtracker",
   "version": "1.0.0",
-  "description": "Bug Tracker",
+  "description": "Bug Tracker - Latest",
   "main": "index.js",
   "scripts": {
     "migrate": "node-pg-migrate",
